@@ -1,6 +1,7 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
-const Product = require("./models/product.model");
 const productRouter = require("./routes/product.routes");
 
 const app = express();
@@ -15,9 +16,7 @@ app.get("/", (req, res) => {
 });
 
 mongoose
-  .connect(
-    "mongodb+srv://moaazseadawy:01002594990@cluster0.ztxln.mongodb.net/Node_API?retryWrites=true&w=majority&appName=Cluster0"
-  )
+  .connect(process.env.DB)
   .then(() => {
     app.listen(3000, () => {
       console.log("Server is running on port 3000");
