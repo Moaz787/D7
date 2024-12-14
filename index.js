@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const compression = require("compression");
+const cors = require("cors");
 const productRouter = require("./routes/product.routes");
 
 const app = express();
@@ -10,6 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(compression());
+app.use(cors());
 
 app.use("/api/v1", productRouter);
 
