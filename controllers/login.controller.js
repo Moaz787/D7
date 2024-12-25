@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 const users = [
   {
     id: 1,
-    username: "example",
+    username: "moaz",
     password: "$2b$10$Z\L9qK0UoT2XE.ESvS2OBe2ybOWrFBtaCxuIDdCxFvvhDGpW51ZE6",
   },
 ];
