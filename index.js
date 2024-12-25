@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const compression = require("compression");
 const cors = require("cors");
 const productRouter = require("./routes/product.routes");
-const authMiddleware = require("./authMiddleware");
+const authMiddleware = require("./middleware/authMiddleware");
 
 const app = express();
 
