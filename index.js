@@ -6,6 +6,7 @@ const compression = require("compression");
 const cors = require("cors");
 const productRouter = require("./routes/product.routes");
 const authMiddleware = require("./middleware/authMiddleware");
+const authRouter = require("./routes/auth.routes");
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(cors({ origin: "*" }));
 app.use("/api/v1", productRouter);
 
+app.use("/api/auth", authRouter);
 app.use("/api/v1/protected-route", authMiddleware, (req, res) => {
   res.send("This is a protected route.");
 });
