@@ -3,11 +3,26 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
+
+const plainPassword = 'MBA7-MOAZ770054'; // استبدل هذه بكلمة المرور الفعلية التي تريد تشفيرها
+const saltRounds = 10;
+
+let hashed;
+
+bcrypt.hash(plainPassword, saltRounds, function(err, hashedPassword) {
+  if (err) {
+    console.error(err);
+  } else {
+    hashed = hashedPassword;
+    console.log('Hashed password:', hashedPassword);
+  }
+});
+
 const users = [
   {
     id: 1,
     username: "moaz",
-    password: "$2b$10$Z\L9qK0UoT2XE.ESvS2OBe2ybOWrFBtaCxuIDdCxFvvhDGpW51ZE6",
+    password: hashed,
   },
 ];
 
